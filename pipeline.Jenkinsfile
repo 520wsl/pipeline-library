@@ -31,7 +31,7 @@ pipeline {
                 checkout(
                         [
                             $class: 'GitSCM', 
-                            branches: [[name: '*/master']], 
+                            branches: [[name: '*/dev']], 
                             doGenerateSubmoduleConfigurations: false, 
                             extensions: [], 
                             submoduleCfg: [], 
@@ -57,6 +57,9 @@ pipeline {
             steps {
                 sh 'pwd'
                 sh 'ls -a ./dist'
+                sh 'cd ./dist'
+                sh 'tar -zcf $resourceName *'
+                
             }
         }
     }
