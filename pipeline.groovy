@@ -21,7 +21,8 @@ pipeline {
         stage ('prepare') {
             steps {
                 //清空发布目录
-                sh 'rm -rf /var/lib/jenkins/workspace/test-pipeline/*'
+                // sh 'rm -rf /var/lib/jenkins/workspace/test-pipeline/*'
+                echo '清空发布目录'
             }
         }
         //拉取git代码仓库
@@ -50,6 +51,12 @@ pipeline {
                     sh 'npm install'
                     sh 'npm run build'
                 }
+            }
+        }
+        stage ('Pack') {
+            steps {
+                sh 'pwd'
+                sh 'ls -a ./dist'
             }
         }
     }
