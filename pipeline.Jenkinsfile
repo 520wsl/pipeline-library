@@ -57,10 +57,11 @@ pipeline {
             steps {
                 sh 'pwd'
                 sh 'ls -a ./dist'
-                sh 'cd ./dist/'
-                sh 'pwd'
-                sh "tar -zcf ${RESOURCE_NAME} *"
-
+                sh '''
+                cd ./dist/
+                pwd
+                tar -zcf ${RESOURCE_NAME} *
+                '''
             }
         }
     }
