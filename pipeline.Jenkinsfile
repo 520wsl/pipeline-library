@@ -30,11 +30,11 @@ pipeline {
             steps {
                 checkout(
                         [
-                            $class: 'GitSCM', 
-                            branches: [[name: '*/dev']], 
-                            doGenerateSubmoduleConfigurations: false, 
-                            extensions: [], 
-                            submoduleCfg: [], 
+                            $class: 'GitSCM',
+                            branches: [[name: '*/dev']],
+                            doGenerateSubmoduleConfigurations: false,
+                            extensions: [],
+                            submoduleCfg: [],
                             userRemoteConfigs: [[credentialsId: WSL_CREDENTIALSID,url:sixi_customer_center_wechat]]
                         ]
                     )
@@ -57,7 +57,7 @@ pipeline {
             steps {
                 sh 'pwd'
                 sh 'ls -a ./dist'
-                sh 'cd ./dist'
+                sh 'cd ./dist/'
                 sh 'pwd'
                 sh "tar -zcf ${RESOURCE_NAME} *"
 
