@@ -58,8 +58,9 @@ pipeline {
                 sh 'pwd'
                 sh 'ls -a ./dist'
                 sh 'cd ./dist'
-                sh 'tar -zcf $resourceName *'
-                
+                sh 'pwd'
+                sh "tar -zcf ${RESOURCE_NAME} *"
+
             }
         }
     }
